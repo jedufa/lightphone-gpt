@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools==83.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lightphone-gpt"
+version = "0.1.0"
+description = "Asynchronous Notes-to-ChatGPT bridge for the Light Phone II"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+[project.optional-dependencies]
+stt = [
+    "faster-whisper==1.2.1",
+    # faster-whisper 1.2.1 calls metadata_errors, which PyAV 19 removed.
+    "av==18.1.0",
+]
+light = [
+    "click==8.1.8",
+    "light-phone-api @ git+https://github.com/garado/light.git@06620db5ac1068ce7be36c4994f5e793b8b3ead0#subdirectory=light_api",
+]
+chatgpt = [
+    "openai==3.31.0",
+    "PyJWT[crypto]==2.15.0",
+]
+dev = [
+    "build==1.4.0",
+    "pytest==9.0.3",
+]
+
+[project.scripts]
+lightphone-gpt = "lightphone_gpt.cli:entrypoint"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.data-files]
+"share/doc/lightphone-gpt" = [
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "docs/architecture.md",
+    "docs/installation.md",
+    "docs/security.md",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]

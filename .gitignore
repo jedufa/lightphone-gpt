@@ -1,0 +1,41 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+*.egg-info/
+build/
+dist/
+
+# Runtime state and user data
+runtime/
+state/
+models/
+receipts/
+evidence/
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.wav
+*.mp3
+*.m4a
+*.ogg
+*.flac
+
+# Credentials and local configuration
+.env
+*.env
+credentials*.json
+chatgpt-credentials*.json
+chatgpt-host*.json
+provisioning.properties
+signing/
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+
+# Generated mobile artifacts
+*.apk
+*.aab
