@@ -45,10 +45,14 @@ where = ["src"]
 "share/doc/lightphone-gpt" = [
     "README.md",
     "THIRD_PARTY_NOTICES.md",
+]
+"share/doc/lightphone-gpt/docs" = [
     "docs/architecture.md",
-    "docs/assets/lightphone-gpt-flow.svg",
     "docs/installation.md",
     "docs/security.md",
+]
+"share/doc/lightphone-gpt/docs/figures" = [
+    "docs/figures/lightphone-bridge-overview.svg",
 ]
 
 [tool.pytest.ini_options]

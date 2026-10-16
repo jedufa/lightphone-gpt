@@ -6,14 +6,14 @@
 
 **Voice or text Notes in. Short answers back. No smartphone interface required.**
 
-[**How it works ↓**](#how-it-works) · [**Try the simulator →**](#safe-simulator-quick-start) · [**Privacy boundaries →**](#privacy) · [**Installation →**](docs/installation.md)
+[**How it works ↓**](#how-it-works) · [**Try the simulator →**](#quick-start) · [**Privacy boundaries →**](#privacy) · [**Installation →**](docs/installation.md)
 
 <br>
 
-![Python](https://img.shields.io/badge/Python-3.11%2B-3776ab?style=flat-square)
-![Status](https://img.shields.io/badge/status-alpha%20%7C%20unofficial-596c79?style=flat-square)
-![Recovery](https://img.shields.io/badge/recovery-SQLite-377b74?style=flat-square)
-![License](https://img.shields.io/badge/license-GPL--3.0--or--later-326b63?style=flat-square)
+[![Tests](https://github.com/jedufa/lightphone-gpt/actions/workflows/test.yml/badge.svg)](https://github.com/jedufa/lightphone-gpt/actions/workflows/test.yml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB.svg)](https://www.python.org/)
+[![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPL--3.0--or--later-4c1.svg)](LICENSE)
+[![Maturity: alpha](https://img.shields.io/badge/maturity-alpha-E7A33E.svg)](#project-status)
 
 </div>
 
@@ -21,22 +21,9 @@
 
 <sub>Illustrative diagram, not a handset screenshot or a live deployment capture. Light Cloud and OpenAI remain external services.</sub>
 
-[![Tests](https://github.com/jedufa/lightphone-gpt/actions/workflows/test.yml/badge.svg)](https://github.com/jedufa/lightphone-gpt/actions/workflows/test.yml)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB.svg)](https://www.python.org/)
-[![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPL--3.0--or--later-4c1.svg)](LICENSE)
-[![Maturity: alpha](https://img.shields.io/badge/maturity-alpha-E7A33E.svg)](#project-status)
-
 Turn a Light Phone II note into a personal, asynchronous question-and-answer
 loop. Voice is transcribed on the bridge host; accepted text is sent to
 ChatGPT; the answer returns as a rolling `AI READY HH:MM` note.
-
-[Quick start](#quick-start) · [How it works](#how-it-works) ·
-[Installation](docs/installation.md) · [Architecture](docs/architecture.md) ·
-[Security](docs/security.md) · [Contributing](CONTRIBUTING.md)
-
-![Conceptual Light Phone to ChatGPT bridge data flow](docs/assets/lightphone-gpt-flow.svg)
-
-_Conceptual data-flow illustration, not a handset screenshot._
 
 ## Project status
 

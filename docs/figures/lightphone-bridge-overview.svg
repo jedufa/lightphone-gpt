@@ -27,7 +27,7 @@
 <text x="585" y="250" font-family="Arial,sans-serif" font-size="17" fill="#1e3f44">1  Transcribe audio locally</text>
 <text x="585" y="288" font-family="Arial,sans-serif" font-size="17" fill="#1e3f44">2  Process sequential turns</text>
 <text x="585" y="326" font-family="Arial,sans-serif" font-size="17" fill="#1e3f44">3  Preserve SQLite recovery state</text>
-<text x="585" y="364" font-family="Arial,sans-serif" font-size="17" fill="#1e3f44">4  Publish recorded answer safely</text>
+<text x="585" y="364" font-family="Arial,sans-serif" font-size="17" fill="#1e3f44">4  Publish verified answer safely</text>
 <rect x="924" y="203" width="222" height="153" rx="18" fill="#3b5a68" stroke="#8bc5bf" stroke-width="2"/>
 <text x="1035" y="258" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#fff">ChatGPT</text>
 <text x="1035" y="291" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#e0eeeb">Text / context</text>

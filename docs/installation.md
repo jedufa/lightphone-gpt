@@ -90,6 +90,12 @@ The current self-hosted workflow notes that host-specific usage attribution and
 revocation are not yet available for transferred sessions. A separately billed
 OpenAI API key is a distinct authentication path and is not implemented here.
 
+Review the current OpenAI documentation and applicable
+[Sign in with ChatGPT Terms](https://openai.com/policies/sign-in-with-chatgpt-terms/)
+before transferring credentials to a remote host. This project does not
+interpret those terms or determine whether a particular account or deployment
+is eligible.
+
 ## Controlled real activation
 
 Real providers fail closed unless all required settings and the exact
