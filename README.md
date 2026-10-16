@@ -1,4 +1,25 @@
+<div align="center">
+
 # Lightphone GPT Bridge
+
+### A quieter way to ask ChatGPT from a Light Phone.
+
+**Voice or text Notes in. Short answers back. No smartphone interface required.**
+
+[**How it works ↓**](#how-it-works) · [**Try the simulator →**](#safe-simulator-quick-start) · [**Privacy boundaries →**](#privacy) · [**Installation →**](docs/installation.md)
+
+<br>
+
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776ab?style=flat-square)
+![Status](https://img.shields.io/badge/status-alpha%20%7C%20unofficial-596c79?style=flat-square)
+![Recovery](https://img.shields.io/badge/recovery-SQLite-377b74?style=flat-square)
+![License](https://img.shields.io/badge/license-GPL--3.0--or--later-326b63?style=flat-square)
+
+</div>
+
+![Conceptual Lightphone GPT Bridge data-flow illustration](docs/figures/lightphone-bridge-overview.svg)
+
+<sub>Illustrative diagram, not a handset screenshot or a live deployment capture. Light Cloud and OpenAI remain external services.</sub>
 
 [![Tests](https://github.com/jedufa/lightphone-gpt/actions/workflows/test.yml/badge.svg)](https://github.com/jedufa/lightphone-gpt/actions/workflows/test.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB.svg)](https://www.python.org/)
