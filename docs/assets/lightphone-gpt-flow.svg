@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title description">
+  <title id="title">Lightphone GPT Bridge conceptual data flow</title>
+  <desc id="description">A Light Phone note travels through Light Cloud to a self-hosted bridge, which transcribes audio locally, stores recovery state, and exchanges text with ChatGPT before returning the answer.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101916"/>
+      <stop offset="1" stop-color="#1d2e27"/>
+    </linearGradient>
+    <linearGradient id="bridge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c7f0d8"/>
+      <stop offset="1" stop-color="#8fd6ae"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#07100c" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9db9aa"/>
+    </marker>
+    <style>
+      .sans { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .label { font-size: 21px; font-weight: 700; fill: #eef8f2; }
+      .detail { font-size: 15px; fill: #a9c2b4; }
+      .dark-label { font-size: 23px; font-weight: 800; fill: #102018; }
+      .dark-detail { font-size: 15px; fill: #29493a; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="640" rx="28" fill="url(#background)"/>
+  <circle cx="1090" cy="30" r="260" fill="#69c790" opacity="0.07"/>
+  <circle cx="90" cy="640" r="250" fill="#69c790" opacity="0.05"/>
+
+  <g class="sans">
+    <text x="72" y="72" font-size="34" font-weight="800" fill="#f2faf5">Ask from Notes. Recover safely. Read the answer on Light.</text>
+    <text x="72" y="106" font-size="17" fill="#a9c2b4">A source-only, self-hosted bridge with local transcription and durable publication state.</text>
+
+    <path d="M 272 284 H 390" stroke="#9db9aa" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M 560 284 H 670" stroke="#9db9aa" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M 920 284 H 1028" stroke="#9db9aa" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M 1028 330 H 920" stroke="#69c790" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M 670 330 H 560" stroke="#69c790" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M 390 330 H 272" stroke="#69c790" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <g filter="url(#shadow)">
+      <rect x="72" y="214" width="200" height="150" rx="22" fill="#22372e" stroke="#486d5b"/>
+      <text class="label" x="172" y="265" text-anchor="middle">Light Phone II</text>
+      <text class="detail" x="172" y="296" text-anchor="middle">Notes in</text>
+      <text class="detail" x="172" y="320" text-anchor="middle">answers back</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="390" y="234" width="170" height="110" rx="55" fill="#22372e" stroke="#486d5b"/>
+      <text class="label" x="475" y="281" text-anchor="middle">Light Cloud</text>
+      <text class="detail" x="475" y="309" text-anchor="middle">unofficial API</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="670" y="194" width="250" height="190" rx="24" fill="url(#bridge)"/>
+      <text class="dark-label" x="795" y="247" text-anchor="middle">Self-hosted bridge</text>
+      <text class="dark-detail" x="795" y="282" text-anchor="middle">local speech-to-text</text>
+      <text class="dark-detail" x="795" y="310" text-anchor="middle">SQLite recovery state</text>
+      <text class="dark-detail" x="795" y="338" text-anchor="middle">guarded publication</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="1028" y="214" width="180" height="150" rx="22" fill="#22372e" stroke="#486d5b"/>
+      <text class="label" x="1118" y="265" text-anchor="middle">ChatGPT</text>
+      <text class="detail" x="1118" y="296" text-anchor="middle">text context</text>
+      <text class="detail" x="1118" y="320" text-anchor="middle">no model tools</text>
+    </g>
+
+    <rect x="270" y="476" width="740" height="58" rx="29" fill="#17251f" stroke="#355243"/>
+    <text x="640" y="511" text-anchor="middle" font-size="16" fill="#bcd2c5">Transcript saved before inference · answer saved before publication · uncertain writes are not blindly repeated</text>
+    <text x="640" y="590" text-anchor="middle" font-size="15" fill="#739684">ALPHA · UNOFFICIAL · SOURCE-ONLY</text>
+  </g>
+</svg>

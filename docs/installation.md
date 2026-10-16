@@ -14,7 +14,7 @@ working tree.
 ## Simulator-first setup
 
 ```bash
-git clone <private-review-repository-url> lightphone-gpt
+git clone https://github.com/jedufa/lightphone-gpt.git
 cd lightphone-gpt
 python3 -m venv .venv
 . .venv/bin/activate
@@ -75,18 +75,20 @@ The implemented assistant uses Sign in with ChatGPT and stores OAuth material
 in an owner-controlled credential file. It does not accept a ChatGPT password,
 browser cookie, or OpenAI API key.
 
-There is a documentation/terms ambiguity to resolve before remote deployment:
+OpenAI's current documentation includes an explicit
+[self-hosted VM workflow](https://developers.openai.com/siwc/token-sharing-open-source/self-hosted-vms)
+for open-source apps: create a distinct host ID for the VM, complete OAuth
+locally, transfer the protected credential record over a secure channel, and
+let the VM own later token refreshes. Follow that guide rather than copying a
+laptop host ID or performing an improvised browser-cookie transfer.
 
-- OpenAI's [self-hosted VM guide](https://developers.openai.com/siwc/token-sharing-open-source/self-hosted-vms)
-  describes transferring protected credentials to a user-controlled VM.
-- The [Sign in with ChatGPT Terms](https://openai.com/policies/sign-in-with-chatgpt-terms/)
-  say persistent authentication-token storage must be local and not in a remote
-  or managed environment.
-
-This project does not interpret that conflict for you. Review the current
-documents and obtain clarification if your intended host is remote. A
-separately billed OpenAI API key is a distinct authentication path and is not
-implemented by this source candidate.
+Keep access, refresh, and retained ID tokens in protected runtime storage and
+out of source control, URLs, logs, analytics, and support transcripts, as
+required by OpenAI's
+[account and session guidance](https://developers.openai.com/siwc/token-sharing-open-source/profiles-and-sessions).
+The current self-hosted workflow notes that host-specific usage attribution and
+revocation are not yet available for transferred sessions. A separately billed
+OpenAI API key is a distinct authentication path and is not implemented here.
 
 ## Controlled real activation
 

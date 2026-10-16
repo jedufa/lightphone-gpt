@@ -15,9 +15,15 @@ versioning after its first stable release.
   discovery, and the user-facing `Assistant, reset` command.
 - Added deterministic wheel and source-archive generation from the committed
   Git tree.
+- Normalized malformed HTTP/0.9-style notifier requests to a bounded HTTP/1.1
+  error across Python 3.11, 3.12, and 3.13.
+- Replaced the private-review clone placeholder and aligned self-hosted
+  authentication guidance with OpenAI's documented VM workflow.
+- Added a concise capability matrix, navigation, and conceptual architecture
+  artwork to the public README.
 - Added public architecture, installation, privacy, security, contribution,
   and third-party attribution documentation.
 
 The project remains alpha. Physical handset behavior, upstream compatibility,
-and remote authentication policy require independent validation by each
-operator.
+and each operator's account and host configuration require independent
+validation.

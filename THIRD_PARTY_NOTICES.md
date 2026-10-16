@@ -12,8 +12,14 @@ the GNU General Public License version 3 or later and carries an attribution
 term under GPLv3 section 7(b). Its complete license remains in the upstream
 distribution. Lightphone GPT Bridge does not vendor or modify its source.
 
-The upstream interface is reverse engineered, unsupported by Light, and may change
-without notice.
+The upstream interface is reverse engineered, unsupported by Light, and may
+change without notice.
+
+## Click
+
+The optional Light Cloud adapter installs
+[Click](https://github.com/pallets/click) 8.1.8 for the pinned upstream client's
+command-line interface. Click is licensed under the BSD 3-Clause License.
 
 ## faster-whisper
 

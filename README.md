@@ -1,31 +1,69 @@
 # Lightphone GPT Bridge
 
-Lightphone GPT Bridge turns Light Phone II Notes into an asynchronous personal
-assistant. Save a voice recording or text note beginning with `Assistant,`;
-the bridge transcribes audio locally, asks ChatGPT, and publishes a short answer
-to a rolling `AI READY HH:MM` text note. The displayed time uses a configurable
-IANA timezone.
+[![Tests](https://github.com/jedufa/lightphone-gpt/actions/workflows/test.yml/badge.svg)](https://github.com/jedufa/lightphone-gpt/actions/workflows/test.yml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB.svg)](https://www.python.org/)
+[![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPL--3.0--or--later-4c1.svg)](LICENSE)
+[![Maturity: alpha](https://img.shields.io/badge/maturity-alpha-E7A33E.svg)](#project-status)
+
+Turn a Light Phone II note into a personal, asynchronous question-and-answer
+loop. Voice is transcribed on the bridge host; accepted text is sent to
+ChatGPT; the answer returns as a rolling `AI READY HH:MM` note.
+
+[Quick start](#quick-start) · [How it works](#how-it-works) ·
+[Installation](docs/installation.md) · [Architecture](docs/architecture.md) ·
+[Security](docs/security.md) · [Contributing](CONTRIBUTING.md)
+
+![Conceptual Light Phone to ChatGPT bridge data flow](docs/assets/lightphone-gpt-flow.svg)
+
+_Conceptual data-flow illustration, not a handset screenshot._
+
+## Project status
 
 This is an **alpha, unofficial community project**. It is not affiliated with,
-endorsed by, or supported by Light or OpenAI. It uses an unofficial Light Cloud
-client, so upstream changes can break it. Handset synchronization is eventually
-consistent: an open answer note may need to be closed and reopened before an
-update appears.
+endorsed by, or supported by Light or OpenAI. Its Light Cloud integration uses
+an unofficial client, so upstream changes can break it. Handset synchronization
+is eventually consistent: an open answer note may need to be closed and
+reopened before an update appears.
 
-This release candidate contains the Python bridge and simulator. Private
+This source-only release contains the Python bridge and simulator. Private
 deployment topology, operational evidence, user data, and the separately
-reviewed phone-notifier client are outside this source-only scope.
+reviewed phone-notifier client are outside its scope.
+
+| Capability | Included | Evidence boundary |
+|---|---:|---|
+| Safe simulator and mock assistant | Yes | Covered by automated tests; no cloud access |
+| Unofficial Light Cloud adapter | Yes | Mocked and bounded tests; upstream compatibility can change |
+| Sign in with ChatGPT adapter | Yes | Uses an eligible account; cannot read ChatGPT chats or Memory |
+| Local speech transcription | Optional | Ordinary transcription does not send audio to OpenAI |
+| Real handset end-to-end validation | Not claimed | Must be verified by each operator on their own account and device |
+
+## Quick start
+
+Python 3.11 or newer is required. This path uses only the simulator and mock
+assistant; it makes no Light Cloud or OpenAI request.
+
+```bash
+git clone https://github.com/jedufa/lightphone-gpt.git
+cd lightphone-gpt
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -e '.[dev]'
+
+export LIGHTPHONE_GPT_STATE_DIR="$PWD/runtime"
+lightphone-gpt init
+lightphone-gpt simulator seed-text \
+  --title 'Example' \
+  --content 'Assistant, give me one calm sentence.'
+lightphone-gpt cycle
+lightphone-gpt status
+```
+
+A successful cycle reports one published simulated job. Read
+[Installation](docs/installation.md) before configuring real providers. For an
+exact dependency graph, install [uv](https://docs.astral.sh/uv/) and run
+`uv sync --frozen --extra dev`.
 
 ## How it works
-
-```mermaid
-flowchart LR
-    P[Light Phone II Notes] <--> L[Light Cloud]
-    L <--> B[Bridge worker]
-    B --> T[Local speech-to-text]
-    B <--> D[(SQLite state)]
-    B <--> C[ChatGPT]
-```
 
 The worker polls Notes, identifies each note by its Light note ID, and handles
 one conversational turn at a time. It stores the transcript before inference
@@ -43,30 +81,6 @@ Supported interactions are:
 Text notes must begin with `Assistant`. Audio routing also tolerates a small
 set of observed speech-recognition variants. Titles and filenames do not grant
 ownership and are never used as request identity.
-
-## Safe simulator quick start
-
-Python 3.11 or newer is required. The following path uses the simulator and
-mock assistant. It makes no Light Cloud or OpenAI request.
-
-```bash
-python3 -m venv .venv
-. .venv/bin/activate
-python -m pip install -e '.[dev]'
-
-export LIGHTPHONE_GPT_STATE_DIR="$PWD/runtime"
-lightphone-gpt init
-lightphone-gpt simulator seed-text \
-  --title 'Example' \
-  --content 'Assistant, give me one calm sentence.'
-lightphone-gpt cycle
-lightphone-gpt status
-```
-
-A successful cycle reports one published simulated job. See
-[Installation](docs/installation.md) before configuring real providers.
-For an exact dependency graph, install
-[uv](https://docs.astral.sh/uv/) and run `uv sync --frozen --extra dev`.
 
 ## Capabilities and limits
 

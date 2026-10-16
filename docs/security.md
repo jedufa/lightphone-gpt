@@ -36,6 +36,22 @@ authentication, no request/authorization-header logging, rate limits, and a
 firewall that exposes only the intended port. The optional notification
 protocol carries no note content but its bearer token is still a secret.
 
+## ChatGPT credentials on a self-hosted VM
+
+OpenAI documents a supported workflow for running an open-source Sign in with
+ChatGPT client on a
+[self-hosted VM](https://developers.openai.com/siwc/token-sharing-open-source/self-hosted-vms).
+Give the VM its own stable host ID, complete the browser flow locally, transfer
+the protected credential record over a secure channel, and let the VM own later
+refreshes. Do not copy the laptop's host ID onto the VM.
+
+This bridge enforces an owner-only credential directory and file, rejects
+symbolic-link credential paths, and serializes rotating-token refreshes. Host
+hardening, encrypted backups, secure transfer, account revocation, and access
+to the service user remain operator responsibilities. OpenAI notes that
+host-specific usage attribution and revocation are not yet available for a
+transferred session.
+
 ## Data lifecycle
 
 Set independent retention periods for source audio, accepted text, transcripts,

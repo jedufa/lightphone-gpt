@@ -5,6 +5,7 @@
 *.yml text eol=lf
 *.yaml text eol=lf
 *.json text eol=lf
+*.png binary
 *.wav binary
 *.mp3 binary
 *.m4a binary

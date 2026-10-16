@@ -46,6 +46,7 @@ where = ["src"]
     "README.md",
     "THIRD_PARTY_NOTICES.md",
     "docs/architecture.md",
+    "docs/assets/lightphone-gpt-flow.svg",
     "docs/installation.md",
     "docs/security.md",
 ]
